@@ -15,6 +15,12 @@ class Ui_SecondWindow(object):
 
 
     def pasarAPreguntas(self, title, subtitle):
+
+        f = open('data.txt', 'a')
+        f.write(title + '\n')
+        f.write(subtitle + '\n')
+        f.close()
+
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_preguntas()
         self.ui.setupUi(self.window)
@@ -23,7 +29,7 @@ class Ui_SecondWindow(object):
 
     def setupUi(self, SecondWindow):
         SecondWindow.setObjectName("SecondWindow")
-        SecondWindow.resize(789, 304)
+        SecondWindow.resize(1280, 720)
         self.centralwidget = QtWidgets.QWidget(SecondWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)

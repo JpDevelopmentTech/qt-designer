@@ -13,7 +13,14 @@ from secondWindow import Ui_SecondWindow
 
 class Ui_MainWindow(object):
 
-    def pasarASeleccion(self):
+    def pasarASeleccion(self, name):
+
+        f = open('data.txt', 'w')
+        f.write(name + '\n')
+        f.close()
+
+
+
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_SecondWindow()
         self.ui.setupUi(self.window)
@@ -21,7 +28,7 @@ class Ui_MainWindow(object):
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1105, 420)
+        MainWindow.resize(1280, 720)
         font = QtGui.QFont()
         font.setFamily("Poppins")
         font.setPointSize(12)
@@ -35,10 +42,10 @@ class Ui_MainWindow(object):
         font.setPointSize(24)
         self.label.setFont(font)
         self.label.setObjectName("label")
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.pasarASeleccion())
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.pasarASeleccion(name = 'Transmision '))
         self.pushButton.setGeometry(QtCore.QRect(160, 240, 201, 51))
         self.pushButton.setObjectName("pushButton")
-        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.pasarASeleccion())
+        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.pasarASeleccion(name = 'Distribucion'))
         self.pushButton_2.setGeometry(QtCore.QRect(750, 240, 201, 51))
         self.pushButton_2.setObjectName("pushButton_2")
         MainWindow.setCentralWidget(self.centralwidget)
